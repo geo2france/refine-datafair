@@ -12,6 +12,7 @@ export const generateFilter = (filters?: CrudFilters) => {
           case "contains":
             return filter.value
           case "eq":
+          case "ne":
             return `"${filter.value}"`
           case "startswith":
             return `${filter.value}*`
@@ -20,7 +21,16 @@ export const generateFilter = (filters?: CrudFilters) => {
 
         }})()
 
-        array_filter.push(`${filter.field}:${value}`)
+        const not = (() => {switch (filter.operator){
+          case "ne":
+          case "nstartswith" :
+          case "nendswith":
+            return 'NOT '
+          default:
+            return ''
+        }})();
+
+        array_filter.push(`(${not}${filter.field}:${value})`)
 
       }else{ //Conditionnal filter
         throw new Error(
