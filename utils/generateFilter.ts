@@ -18,6 +18,8 @@ export const generateFilter = (filters?: CrudFilters) => {
             return `${filter.value}*`
           case "endswith":
             return `*${filter.value}`
+          case "in":
+            return filter.value.join(' ')
 
         }})()
 
@@ -25,6 +27,7 @@ export const generateFilter = (filters?: CrudFilters) => {
           case "ne":
           case "nstartswith" :
           case "nendswith":
+          case "nin":
             return 'NOT '
           default:
             return ''
