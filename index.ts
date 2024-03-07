@@ -43,7 +43,7 @@ export const dataProvider = (
       query.qs = queryFilters
     }
 
-    const { data, headers } = await httpClient[requestMethod](
+    const { data } = await httpClient[requestMethod](
       `${url}?${stringify(query)}`,
       {
         headers: headersFromMeta,
