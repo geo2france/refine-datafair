@@ -1,5 +1,8 @@
 # Refine-datafair
 
+> [!IMPORTANT]  
+> Le fournisseur est maintenant intégré dans le projet https://github.com/geo2france/g2f-dashboard/
+
 [Data Fair API](https://data-fair.github.io/3/en/user-guide-frontoffice/datasetpage/) data-provider for [refine](https://refine.dev/).
 
 ## Installation
